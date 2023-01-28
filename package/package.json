@@ -1,0 +1,28 @@
+{
+  "name": "@headless-comments/react",
+  "version": "0.1.0",
+  "description": "",
+  "author": "",
+  "keywords": [],
+  "license": "ISC",
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "parcel watch",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.8.3",
+    "@parcel/transformer-typescript-types": "^2.8.3",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "parcel": "^2.8.3",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
