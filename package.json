@@ -10,9 +10,14 @@
     "example"
   ],
   "scripts": {
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "lint": "npm run lint:prettier",
+    "lint:prettier": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "format": "npm run format:prettier",
+    "format:prettier": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "prettier": "^2.8.3",
     "turbo": "^1.7.0"
   }
 }
