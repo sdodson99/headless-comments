@@ -1,3 +1,1 @@
-export function Comment() {
-  return <div>Hello world!</div>;
-}
+export { CommentsProvider } from './comments-provider';
