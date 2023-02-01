@@ -1,4 +1,4 @@
-import { CommentsProvider } from '@headless-comments/react';
+import { FirebaseCommentsProvider } from '@headless-comments/react';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { useEffect, useState } from 'react';
 import { Comments } from './Comments';
@@ -26,8 +26,8 @@ export function App() {
   }
 
   return (
-    <CommentsProvider firebaseApp={firebaseApp} id="blogtest1">
+    <FirebaseCommentsProvider firebaseApp={firebaseApp}>
       <Comments />
-    </CommentsProvider>
+    </FirebaseCommentsProvider>
   );
 }

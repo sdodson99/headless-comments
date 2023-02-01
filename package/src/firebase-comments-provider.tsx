@@ -2,17 +2,15 @@ import { FirebaseApp } from 'firebase/app';
 import { PropsWithChildren } from 'react';
 import { FirebaseAppProvider } from './shared/firebase';
 
-type CommentsProviderType = PropsWithChildren<{
+type FirebaseCommentsProviderType = PropsWithChildren<{
   firebaseApp: FirebaseApp;
-  id: string;
 }>;
 
-export function CommentsProvider({
+export function FirebaseCommentsProvider({
   children,
   firebaseApp,
-  id,
-}: CommentsProviderType) {
+}: FirebaseCommentsProviderType) {
   return (
-    <FirebaseAppProvider app={firebaseApp} id={id}>{children}</FirebaseAppProvider>
+    <FirebaseAppProvider app={firebaseApp}>{children}</FirebaseAppProvider>
   );
 }

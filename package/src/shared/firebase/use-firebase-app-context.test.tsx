@@ -8,7 +8,7 @@ describe('useFirebaseAppContext', () => {
     const expectedApp = {} as FirebaseApp;
     const { result } = renderHook(() => useFirebaseAppContext(), {
       wrapper: ({ children }) => (
-        <FirebaseAppProvider app={expectedApp} id='test'>{children}</FirebaseAppProvider>
+        <FirebaseAppProvider app={expectedApp}>{children}</FirebaseAppProvider>
       ),
     });
 

@@ -1,7 +1,7 @@
-import { useFirebaseAppContext } from '@headless-comments/react';
+import { useComments } from '@headless-comments/react';
 
 export function Comments() {
-  const { comments } = useFirebaseAppContext();
+  const comments = useComments('blogtest1');
 
   return (
     <ul>

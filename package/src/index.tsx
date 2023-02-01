@@ -1,2 +1,2 @@
-export { CommentsProvider } from './comments-provider';
-export { useFirebaseAppContext } from './shared/firebase/use-firebase-app-context';
+export { FirebaseCommentsProvider } from './firebase-comments-provider';
+export { useComments } from './use-comments';
