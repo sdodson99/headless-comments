@@ -1,8 +1,8 @@
 import { getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { Comment } from './comment';
-import { useFirebaseAppContext } from './shared/firebase';
-import { getComments } from './shared/firebase/firebase-service';
+import { useFirebaseAppContext } from './firebase';
+import { getComments } from './firebase/firebase-service';
 
 export const useComments = (id: string) => {
   const { app } = useFirebaseAppContext();
