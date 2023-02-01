@@ -1,6 +1,7 @@
 import { CommentsProvider } from '@headless-comments/react';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { useEffect, useState } from 'react';
+import { Comments } from './Comments';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBodk8ikf-7YMK9q8a0JSVffq2qT1tnmks',
@@ -25,8 +26,8 @@ export function App() {
   }
 
   return (
-    <CommentsProvider firebaseApp={firebaseApp}>
-      <div>Hello world!</div>
+    <CommentsProvider firebaseApp={firebaseApp} id="blogtest1">
+      <Comments />
     </CommentsProvider>
   );
 }
