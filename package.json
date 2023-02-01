@@ -14,7 +14,9 @@
     "lint": "npm run lint:prettier",
     "lint:prettier": "prettier --check \"**/*.{ts,tsx,md}\"",
     "format": "npm run format:prettier",
-    "format:prettier": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format:prettier": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo test",
+    "build": "turbo build"
   },
   "devDependencies": {
     "prettier": "^2.8.3",
