@@ -4,11 +4,11 @@ All the infrastructure you need to add a highly customizable comment section to 
 
 ## Packages
 
-| Name                     | Description                                                 | Source Code |
-| ------------------------ | ----------------------------------------------------------- | :---------: |
-| @headless-comments/react | Comment section infrastructure for a **React** application. |  [Go to]()  |
+| Name                     | Description                                                 |                                 Source Code                                 |
+| ------------------------ | ----------------------------------------------------------- | :-------------------------------------------------------------------------: |
+| @headless-comments/react | Comment section infrastructure for a **React** application. | [Go to](https://github.com/sdodson99/headless-comments/tree/master/package) |
 
-## How to Run Locally
+## Running Locally
 
 1. Install packages.
 
@@ -27,6 +27,32 @@ npm run dev
 | Package Name             | Address               |
 | ------------------------ | --------------------- |
 | @headless-comments/react | http://localhost:5173 |
+
+## Publishing Packages
+
+1. Go to the package directory.
+
+```bash
+cd ./package
+```
+
+2. Increment the package version.
+
+```bash
+npm version 0.1.0-alpha.1
+```
+
+3. (optional) Verify package version and contents via a dry run.
+
+```bash
+npm run publish -- --dry-run
+```
+
+4. Publish the package.
+
+```bash
+npm run publish
+```
 
 ## Contributing
 
