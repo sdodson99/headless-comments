@@ -1,14 +1,28 @@
 {
   "name": "@headless-comments/react",
   "version": "0.1.0",
-  "description": "",
-  "author": "",
-  "keywords": [],
-  "license": "ISC",
+  "description": "All the infrastructure you need to add a highly customizable comment section to your website.",
+  "contributors": [
+    {
+      "name": "Eric Dodson"
+    },
+    {
+      "name": "Sean Dodson"
+    }
+  ],
+  "keywords": [
+    "comments",
+    "react",
+    "blog"
+  ],
+  "license": "MIT",
   "source": "src/index.tsx",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "predev": "npm run clean",
     "dev": "parcel watch",
@@ -31,9 +45,9 @@
     "parcel": "^2.8.3",
     "typescript": "^4.9.4"
   },
-  "dependencies": {
-    "firebase": "^9.16.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "firebase": "^9",
+    "react": "^18",
+    "react-dom": "^18"
   }
 }
