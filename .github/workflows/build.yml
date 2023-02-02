@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'master'
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  EXAMPLE_PROJECT_PATH: 'example'
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      - name: 'Setup Node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: 'Install Packages'
+        run: 'npm ci'
+
+      - name: 'Lint'
+        run: 'npm run lint'
+
+      - name: 'Test'
+        run: 'npm run test'
+
+      - name: 'Build'
+        run: 'npm run build'
+
+      - name: 'Stage Example Application'
+        id: 'stage'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          entryPoint: ${{ env.EXAMPLE_PROJECT_PATH }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HEADLESS_COMMENTS }}
+          channelId: ${{ github.ref_name }}
