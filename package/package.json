@@ -1,6 +1,6 @@
 {
   "name": "@headless-comments/react",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "All the infrastructure you need to add a highly customizable comment section to your website.",
   "contributors": [
     {
