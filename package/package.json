@@ -24,9 +24,9 @@
     "dist/*"
   ],
   "scripts": {
-    "predev": "npm run clean",
     "dev": "parcel watch",
     "test": "jest",
+    "prebuild": "npm run clean",
     "build": "parcel build",
     "prepublish": "npm run clean && npm run build",
     "publish": "npm publish --access=public",
