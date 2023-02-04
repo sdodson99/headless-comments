@@ -17,14 +17,14 @@ export const useCommentsDataContext = () => useContext(CommentsDataContext);
 
 type CommentsDataProviderProps = PropsWithChildren<{}>;
 
-type CommentsMap = {
+type ContentToCommentsMap = {
   [contentId: string]: Comment[];
 };
 
 export const CommentsDataProvider = ({
   children,
 }: CommentsDataProviderProps) => {
-  const [commentsMap, setCommentsMap] = useState<CommentsMap>({});
+  const [commentsMap, setCommentsMap] = useState<ContentToCommentsMap>({});
 
   const getComments = (contentId: string) => commentsMap[contentId] ?? [];
 
