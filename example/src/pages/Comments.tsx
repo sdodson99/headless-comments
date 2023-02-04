@@ -1,7 +1,7 @@
 import { useComments } from '@headless-comments/react';
 
 export function Comments() {
-  const comments = useComments('blogtest1');
+  const { comments } = useComments('blogtest1');
 
   return (
     <ul>

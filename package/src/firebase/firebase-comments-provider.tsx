@@ -1,5 +1,6 @@
 import { FirebaseApp } from 'firebase/app';
 import { PropsWithChildren } from 'react';
+import { CommentsDataProvider } from '../comments-data-context';
 import { FirebaseAppProvider } from './firebase-app-provider';
 
 type FirebaseCommentsProviderType = PropsWithChildren<{
@@ -11,6 +12,8 @@ export function FirebaseCommentsProvider({
   firebaseApp,
 }: FirebaseCommentsProviderType) {
   return (
-    <FirebaseAppProvider app={firebaseApp}>{children}</FirebaseAppProvider>
+    <FirebaseAppProvider app={firebaseApp}>
+      <CommentsDataProvider>{children}</CommentsDataProvider>
+    </FirebaseAppProvider>
   );
 }
