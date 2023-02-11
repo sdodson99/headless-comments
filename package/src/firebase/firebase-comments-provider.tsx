@@ -4,16 +4,20 @@ import { CommentsDataProvider } from '../comments-data-context';
 import { FirebaseAppProvider } from './firebase-app-provider';
 
 type FirebaseCommentsProviderType = PropsWithChildren<{
+  contentId: string;
   firebaseApp: FirebaseApp;
 }>;
 
 export function FirebaseCommentsProvider({
   children,
+  contentId,
   firebaseApp,
 }: FirebaseCommentsProviderType) {
   return (
     <FirebaseAppProvider app={firebaseApp}>
-      <CommentsDataProvider>{children}</CommentsDataProvider>
+      <CommentsDataProvider contentId={contentId}>
+        {children}
+      </CommentsDataProvider>
     </FirebaseAppProvider>
   );
 }

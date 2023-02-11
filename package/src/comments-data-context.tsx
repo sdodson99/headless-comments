@@ -2,50 +2,47 @@ import { createContext, PropsWithChildren, useContext, useState } from 'react';
 import { Comment } from './comment';
 
 type CommentsDataContextProps = {
-  getComments: (contentId: string) => Comment[];
-  setComments: (contentId: string, comments: Comment[]) => void;
-  addComment: (contentId: string, comment: Comment) => void;
+  contentId: string;
+  comments: Comment[];
+  setComments: (comments: Comment[]) => void;
+  addComment: (comment: Comment) => void;
 };
 
 const CommentsDataContext = createContext<CommentsDataContextProps>({
-  getComments: () => [],
+  contentId: '',
+  comments: [],
   setComments: () => {},
   addComment: () => {},
 });
 
 export const useCommentsDataContext = () => useContext(CommentsDataContext);
 
-type CommentsDataProviderProps = PropsWithChildren<{}>;
-
-type ContentToCommentsMap = {
-  [contentId: string]: Comment[];
-};
+type CommentsDataProviderProps = PropsWithChildren<{
+  contentId: string;
+}>;
 
 export const CommentsDataProvider = ({
   children,
+  contentId,
 }: CommentsDataProviderProps) => {
-  const [commentsMap, setCommentsMap] = useState<ContentToCommentsMap>({});
+  const [commentsState, setCommentsState] = useState<Comment[]>([]);
 
-  const getComments = (contentId: string) => commentsMap[contentId] ?? [];
-
-  const setComments = (contentId: string, comments: Comment[]) => {
-    setCommentsMap((previous) => ({
-      ...previous,
-      [contentId]: comments,
-    }));
+  const setComments = (comments: Comment[]) => {
+    setCommentsState(comments);
   };
 
-  const addComment = (contentId: string, comment: Comment) => {
-    setCommentsMap((previous) => ({
-      ...previous,
-      [contentId]: [...previous[contentId], comment],
-    }));
+  const addComment = (comment: Comment) => {
+    setCommentsState((currentCommentsState) => [
+      ...currentCommentsState,
+      comment,
+    ]);
   };
 
   return (
     <CommentsDataContext.Provider
       value={{
-        getComments,
+        contentId,
+        comments: commentsState,
         setComments,
         addComment,
       }}

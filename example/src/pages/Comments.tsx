@@ -1,7 +1,11 @@
 import { useComments } from '@headless-comments/react';
 
 export function Comments() {
-  const { comments } = useComments('blogtest1');
+  const { comments, loading } = useComments();
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <ul>

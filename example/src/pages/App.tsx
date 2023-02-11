@@ -26,8 +26,22 @@ export function App() {
   }
 
   return (
-    <FirebaseCommentsProvider firebaseApp={firebaseApp}>
-      <Comments />
-    </FirebaseCommentsProvider>
+    <main>
+      <h1>Headless Comments</h1>
+      <FirebaseCommentsProvider
+        contentId={'blogtest1'}
+        firebaseApp={firebaseApp}
+      >
+        <h2>Blog Test 1</h2>
+        <Comments />
+      </FirebaseCommentsProvider>
+      <FirebaseCommentsProvider
+        contentId={'blogtest2'}
+        firebaseApp={firebaseApp}
+      >
+        <h2>Blog Test 2</h2>
+        <Comments />
+      </FirebaseCommentsProvider>
+    </main>
   );
 }
