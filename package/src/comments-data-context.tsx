@@ -27,16 +27,13 @@ export const CommentsDataProvider = ({
 }: CommentsDataProviderProps) => {
   const [commentsState, setCommentsState] = useState<Comment[]>([]);
 
-  const setComments = (comments: Comment[]) => {
-    setCommentsState(comments);
-  };
+  const setComments = (comments: Comment[]) => setCommentsState(comments);
 
-  const addComment = (comment: Comment) => {
+  const addComment = (comment: Comment) =>
     setCommentsState((currentCommentsState) => [
       ...currentCommentsState,
       comment,
     ]);
-  };
 
   return (
     <CommentsDataContext.Provider

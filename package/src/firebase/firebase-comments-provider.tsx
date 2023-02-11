@@ -1,7 +1,7 @@
 import { FirebaseApp } from 'firebase/app';
 import { PropsWithChildren } from 'react';
 import { CommentsDataProvider } from '../comments-data-context';
-import { FirebaseAppProvider } from './firebase-app-provider';
+import { FirebaseAppProvider } from './firebase-app-context';
 
 type FirebaseCommentsProviderType = PropsWithChildren<{
   contentId: string;
