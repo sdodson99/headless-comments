@@ -1,7 +1,9 @@
 import { renderHook } from '@testing-library/react';
 import { FirebaseApp } from 'firebase/app';
-import { FirebaseAppProvider } from './firebase-app-provider';
-import { useFirebaseAppContext } from './use-firebase-app-context';
+import {
+  useFirebaseAppContext,
+  FirebaseAppProvider,
+} from './firebase-app-context';
 
 describe('useFirebaseAppContext', () => {
   it('provides Firebase app instance', () => {
