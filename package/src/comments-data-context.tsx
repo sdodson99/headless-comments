@@ -3,16 +3,16 @@ import { Comment } from './comment';
 
 type CommentsDataContextProps = {
   contentId: string;
-  comments: Comment[];
-  setComments: (comments: Comment[]) => void;
-  addComment: (comment: Comment) => void;
+  commentsData: Comment[];
+  setCommentsData: (comments: Comment[]) => void;
+  addCommentData: (comment: Comment) => void;
 };
 
 const CommentsDataContext = createContext<CommentsDataContextProps>({
   contentId: '',
-  comments: [],
-  setComments: () => {},
-  addComment: () => {},
+  commentsData: [],
+  setCommentsData: () => {},
+  addCommentData: () => {},
 });
 
 export const useCommentsDataContext = () => useContext(CommentsDataContext);
@@ -27,9 +27,9 @@ export const CommentsDataProvider = ({
 }: CommentsDataProviderProps) => {
   const [commentsState, setCommentsState] = useState<Comment[]>([]);
 
-  const setComments = (comments: Comment[]) => setCommentsState(comments);
+  const setCommentsData = (comments: Comment[]) => setCommentsState(comments);
 
-  const addComment = (comment: Comment) =>
+  const addCommentData = (comment: Comment) =>
     setCommentsState((currentCommentsState) => [
       ...currentCommentsState,
       comment,
@@ -39,9 +39,9 @@ export const CommentsDataProvider = ({
     <CommentsDataContext.Provider
       value={{
         contentId,
-        comments: commentsState,
-        setComments,
-        addComment,
+        commentsData: commentsState,
+        setCommentsData,
+        addCommentData,
       }}
     >
       {children}

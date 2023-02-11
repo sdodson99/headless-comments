@@ -2,7 +2,7 @@ import { useCommentsDataContext } from './comments-data-context';
 import { NewComment } from './comment';
 
 export const useAddComment = () => {
-  const { addComment: addCommentState } = useCommentsDataContext();
+  const { addCommentData } = useCommentsDataContext();
 
   const addComment = async (newComment: NewComment) => {
     // Add comment to Firestore
@@ -11,7 +11,7 @@ export const useAddComment = () => {
       id: '1',
     };
 
-    addCommentState(createdComment);
+    addCommentData(createdComment);
   };
 
   return {
