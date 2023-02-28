@@ -1,17 +1,26 @@
 import { useCommentsDataContext } from './comments-data-context';
 import { NewComment } from './comment';
+import { useFirebaseAppContext } from './firebase';
+import * as firebase from './firebase/firebase-service';
+import { getFirestore } from 'firebase/firestore';
 
 export const useAddComment = () => {
-  const { addCommentData } = useCommentsDataContext();
+  const { contentId, addCommentData } = useCommentsDataContext();
+
+  const { app } = useFirebaseAppContext();
 
   const addComment = async (newComment: NewComment) => {
-    // Add comment to Firestore
-    const createdComment = {
-      ...newComment,
-      id: '1',
-    };
+    if (!app) {
+      throw new Error('Firebase app not provided');
+    }
 
-    addCommentData(createdComment);
+    const comment = await firebase.addComment(
+      getFirestore(app),
+      contentId,
+      newComment
+    );
+
+    addCommentData(comment);
   };
 
   return {
