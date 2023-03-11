@@ -3,31 +3,27 @@ import { FormEvent, useState } from 'react';
 
 export function Comments() {
   const { comments, loading } = useComments();
-  const { addComment } = useAddComment();
+  const {
+    addComment,
+    loading: addingComment,
+    error: addCommentError,
+  } = useAddComment();
 
   const [content, setContent] = useState('');
-  const [addingComment, setAddingComment] = useState(false);
-  const [hasAddCommentError, setHasAddCommentError] = useState(false);
-
-  if (loading) {
-    return <div>loading...</div>;
-  }
 
   const handleAddComment = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setAddingComment(true);
-    setHasAddCommentError(false);
 
     try {
       await addComment({ text: content });
     } catch (err) {
       console.error(err);
-      setHasAddCommentError(true);
-    } finally {
-      setAddingComment(false);
     }
   };
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <section>
@@ -41,7 +37,7 @@ export function Comments() {
         />
         <button>Comment</button>
         {addingComment && <div>adding comment...</div>}
-        {hasAddCommentError && <div>failed to add comment</div>}
+        {addCommentError && <div>{addCommentError.message}</div>}
       </form>
       <ul>
         {comments.map(({ id, text }) => (
